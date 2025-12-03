@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="th">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>หน้าเว็บสวย ๆ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{
+            --bg: linear-gradient(135deg,#0f1724 0%, #112240 40%, #1f2d48 100%);
+            --card: rgba(255,255,255,0.06);
+            --glass: rgba(255,255,255,0.08);
+            --accent: #6ee7b7;
+            --accent-2: #60a5fa;
+            --text: #e6eef8;
+            --muted: rgba(230,238,248,0.65);
+            --radius: 14px;
+            --shadow: 0 10px 30px rgba(2,6,23,0.6);
+        }
+
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            font-family:'Sarabun',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+            background:var(--bg);
+            color:var(--text);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            line-height:1.45;
+            padding:48px 24px;
+        }
+
+        .wrap{
+            max-width:1100px;
+            margin:0 auto;
+        }
+
+        header{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:16px;
+            margin-bottom:28px;
+        }
+        .brand{
+            display:flex;
+            gap:12px;
+            align-items:center;
+        }
+        .logo{
+            width:56px;
+            height:56px;
+            border-radius:12px;
+            background:linear-gradient(135deg,var(--accent),var(--accent-2));
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            box-shadow: 0 6px 20px rgba(96,165,250,0.15), inset 0 -6px 18px rgba(0,0,0,0.12);
+            font-weight:700;
+            font-size:20px;
+            color:#07203b;
+        }
+        .site-title{
+            font-weight:700;
+            font-size:18px;
+            letter-spacing:0.2px;
+        }
+        .site-sub{font-size:13px;color:var(--muted);margin-top:2px}
+
+        nav{
+            display:flex;
+            gap:12px;
+            align-items:center;
+        }
+        .btn{
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            padding:10px 14px;
+            border-radius:999px;
+            background:transparent;
+            color:var(--text);
+            border:1px solid rgba(255,255,255,0.06);
+            text-decoration:none;
+            font-weight:600;
+            cursor:pointer;
+            transition:all .18s ease;
+            backdrop-filter: blur(6px);
+        }
+        .btn.primary{
+            background:linear-gradient(90deg,var(--accent),var(--accent-2));
+            color:#052235;
+            border:none;
+            box-shadow: 0 8px 30px rgba(96,165,250,0.15);
+        }
+        .btn:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
+
+        .hero{
+            display:grid;
+            grid-template-columns:1fr 420px;
+            gap:28px;
+            align-items:center;
+            margin-bottom:34px;
+        }
+        .hero-card{
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border-radius:var(--radius);
+            padding:28px;
+            box-shadow:var(--shadow);
+            border:1px solid rgba(255,255,255,0.04);
+        }
+        .hero h1{margin:0 0 8px 0; font-size:28px}
+        .hero p{margin:0 0 18px 0; color:var(--muted)}
+        .actions{display:flex; gap:12px; flex-wrap:wrap}
+
+        .stats{
+            display:flex;
+            gap:12px;
+            margin-top:18px;
+        }
+        .stat{
+            background:var(--card);
+            padding:10px 12px;
+            border-radius:12px;
+            font-weight:700;
+            color:var(--text);
+            min-width:86px;
+            text-align:center;
+            border:1px solid rgba(255,255,255,0.03);
+        }
+
+        .preview{
+            padding:18px;
+            border-radius:12px;
+            background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06));
+            border:1px solid rgba(255,255,255,0.03);
+        }
+        .screen{
+            background:linear-gradient(180deg,#071229 0%, #0c1d36 100%);
+            height:300px;
+            border-radius:10px;
+            border:1px solid rgba(255,255,255,0.04);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:var(--muted);
+            font-weight:600;
+        }
+
+        .features{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:18px;
+            margin-top:20px;
+        }
+        .feature{
+            background:var(--glass);
+            border-radius:12px;
+            padding:18px;
+            border:1px solid rgba(255,255,255,0.03);
+            transition:transform .16s ease, box-shadow .16s ease;
+        }
+        .feature:hover{transform:translateY(-6px); box-shadow:var(--shadow)}
+        .feature h3{margin:0 0 8px 0;font-size:16px}
+        .feature p{margin:0;color:var(--muted);font-size:14px}
+
+        footer{
+            margin-top:36px;
+            padding:18px;
+            border-radius:12px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border:1px solid rgba(255,255,255,0.03);
+            color:var(--muted);
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:12px;
+        }
+
+        @media (max-width:900px){
+            .hero{grid-template-columns:1fr; align-items:start}
+            .features{grid-template-columns:1fr 1fr}
+            body{padding:28px 16px}
+        }
+        @media (max-width:520px){
+            .features{grid-template-columns:1fr}
+            .logo{width:48px;height:48px;font-size:18px}
+            .hero h1{font-size:22px}
+            header{flex-direction:column; align-items:flex-start; gap:12px}
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="brand">
+                <div class="logo">PT</div>
+                <div>
+                    <div class="site-title">หน้าเว็บตัวอย่าง</div>
+                    <div class="site-sub">เทมเพลต CSS สวย ๆ พร้อมใช้งาน</div>
+                </div>
+            </div>
+            <nav>
+                <a class="btn" href="#features">คุณสมบัติ</a>
+                <a class="btn" href="#examples">ตัวอย่าง</a>
+                <a class="btn primary" href="#download">ดาวน์โหลด</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-card">
+                <h1>ยินดีต้อนรับสู่หน้าเว็บที่เรียบหรู</h1>
+                <p>เทมเพลตนี้ออกแบบให้รองรับภาษาไทย มีคอนทราสต์ที่ดี รองรับหน้าจอทุกขนาด และสามารถปรับแต่งสีได้ง่าย</p>
+                <div class="actions">
+                    <a class="btn primary" href="#get-started">เริ่มใช้งาน</a>
+                    <a class="btn" href="#learn">เรียนรู้เพิ่มเติม</a>
+                </div>
+
+                <div class="stats" aria-hidden="true">
+                    <div class="stat">เร็ว • <span style="font-weight:600">0.9s</span></div>
+                    <div class="stat">ตอบสนอง • <span style="font-weight:600">100%</span></div>
+                    <div class="stat">รองรับ • <span style="font-weight:600">มือถือ</span></div>
+                </div>
+
+                <div id="get-started" style="margin-top:18px;color:var(--muted);font-size:14px">
+                    เริ่มจากแก้สีตัวแปรใน :root และปรับเนื้อหาในส่วน feature เพื่อให้ตรงตามความต้องการ
+                </div>
+            </div>
+
+            <aside class="preview">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                    <strong>ตัวอย่างหน้าจอ</strong>
+                    <span style="color:var(--muted);font-size:13px">Desktop • Mobile</span>
+                </div>
+                <div class="screen">ตัวอย่าง UI</div>
+            </aside>
+        </section>
+
+        <section id="features" class="features" aria-label="คุณสมบัติ">
+            <div class="feature">
+                <h3>ดีไซน์โมเดิร์น</h3>
+                <p>โทนสีสุภาพ พร้อมเอฟเฟกต์เล็กน้อย เพิ่มความน่าสนใจโดยไม่รบกวนการใช้งาน</p>
+            </div>
+            <div class="feature">
+                <h3>รองรับภาษาไทย</h3>
+                <p>เลือกฟอนต์ Sarabun สำหรับการอ่านที่สบายตาในภาษาไทย</p>
+            </div>
+            <div class="feature">
+                <h3>ปรับแต่งง่าย</h3>
+                <p>ตัวแปร CSS ที่ชัดเจน ทำให้เปลี่ยนธีมและสีได้ทันที</p>
+            </div>
+            <div class="feature">
+                <h3>ตอบสนองดี</h3>
+                <p>เลย์เอาต์เป็น grid ที่สามารถย่อ/ขยายได้ตามหน้าจอ</p>
+            </div>
+            <div class="feature">
+                <h3>คอมโพเนนต์พร้อมใช้</h3>
+                <p>ปุ่ม การ์ด และการ์ดตัวอย่าง สามารถนำไปต่อยอดได้ทันที</p>
+            </div>
+            <div class="feature">
+                <h3>เบาและเร็ว</h3>
+                <p>ไม่พึ่งพา JavaScript มาก ช่วยให้โหลดเร็วและเข้าถึงได้ดี</p>
+            </div>
+        </section>
+
+        <footer>
+            <div>© 2025 หน้าเว็บตัวอย่าง — สร้างด้วย CSS</div>
+            <div style="display:flex;gap:8px">
+                <a class="btn" href="#privacy">นโยบาย</a>
+                <a class="btn" href="#contact">ติดต่อ</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html></div></aside></div>
